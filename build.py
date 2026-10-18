@@ -31,10 +31,11 @@ TITLE = "<title>Diamond Jubilee Celebrations | 201 Engineer Regiment</title>"
 OG_TYPE = '<meta property="og:type" content="website">'
 OG_TITLE = '<meta property="og:title" content="Diamond Jubilee Celebrations">'
 
-
 def name_from_id(gid):
-    return " ".join(gid.replace("_", " ").replace("-", " ").split())
-
+    name = " ".join(gid.replace("_", " ").replace("-", " ").split())
+    if name.endswith(" Retd"):
+        name = name[:-5] + " (Retd)"
+    return name
 
 def main():
     if not TEMPLATE.exists():
