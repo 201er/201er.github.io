@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-guest="Maj_Gen_Narasimhan_Retd">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5eedc">
+  <title>Maj Gen Narasimhan (Retd) | Diamond Jubilee Celebrations</title>
+  <link rel="icon" type="image/png" href="/djc_logo.png">
+
+  <!-- WhatsApp / social link preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://201er.github.io/Maj_Gen_Narasimhan_Retd/">
+  <meta property="og:site_name" content="201 Engineer Regiment">
+  <meta property="og:title" content="Maj Gen Narasimhan (Retd)">
+  <meta property="og:description" content="Erunootru Onne Eppothum Munne">
+  <meta property="og:image" content="https://201er.github.io/djc_logo_preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="600">
+  <meta property="og:image:alt" content="Diamond Jubilee Celebrations emblem">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #f5eedc;
+      --paper-light: #fffaf0;
+      --gold: #b18a3b;
+      --gold-light: #d9bd76;
+      --gold-dark: #806125;
+      --ink: #211c14;
+      --muted: #70634d;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { background: var(--paper); -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.85), transparent 58%),
+        linear-gradient(135deg, #f8f2e5, #eee2c7);
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+    button, a { font: inherit; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .page-frame {
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 8px;
+      padding: 14px 8px 14px;
+      border: 1px solid rgba(177,138,59,.55);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header: compact on phones */
+    .masthead { max-width: 1000px; margin: 0 auto; padding: 0 6px 10px; text-align: center; }
+    .crest { display: block; width: 56px; height: 56px; object-fit: contain; margin: 0 auto 6px; }
+    .eyebrow {
+      margin: 0 0 4px; color: var(--gold-dark);
+      font-family: "Cinzel", Georgia, serif; font-size: 10px; font-weight: 600; letter-spacing: .18em;
+    }
+    h1 {
+      margin: 0; font-family: "Cinzel", Georgia, serif; font-weight: 600;
+      font-size: clamp(19px, 5.4vw, 34px); letter-spacing: .04em; line-height: 1.25; text-wrap: balance;
+    }
+    .motto { margin: 6px 0 0; color: var(--muted); font-size: clamp(12px, 3.4vw, 17px); font-weight: 600; letter-spacing: .06em; }
+
+    /* Viewer */
+    .viewer-shell {
+      width: 100%; max-width: 1100px; margin: 0 auto; flex: 1;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10px 0 6px;
+    }
+    #status { max-width: 520px; margin: 24px auto; padding: 10px 16px; color: var(--muted); font-size: 18px; line-height: 1.5; text-align: center; }
+    #status.error { color: #842d24; }
+    .loading-mark {
+      display: inline-block; width: 18px; height: 18px; margin-right: 9px;
+      border: 2px solid rgba(177,138,59,.25); border-top-color: var(--gold-dark);
+      border-radius: 50%; vertical-align: -4px; animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #book-container { width: 100%; overflow: hidden; touch-action: pan-y; }
+    #book { margin: 0 auto; }
+    #book .page { background: #fff; overflow: hidden; }
+    #book .page img {
+      display: block; width: 100%; height: 100%;
+      pointer-events: none; user-select: none; -webkit-user-drag: none;
+      image-rendering: auto;
+    }
+
+    /* Controls */
+    .controls { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 0 4px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      min-height: 46px; min-width: 46px; padding: 0 16px;
+      border: 1px solid var(--gold-dark); border-radius: 3px;
+      color: var(--paper-light); background: #71572c; text-decoration: none; cursor: pointer;
+      touch-action: manipulation;
+    }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn.secondary { color: var(--gold-dark); background: transparent; }
+    #page-number { min-width: 84px; text-align: center; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .extras { display: flex; justify-content: center; gap: 8px; padding: 6px 0; }
+    .hint { margin: 4px 12px 0; color: var(--muted); font-size: 13px; text-align: center; }
+
+    .footer { padding: 14px 8px 2px; color: var(--muted); font-size: 15px; text-align: center; }
+    .footer b { display: block; margin-bottom: 3px; color: var(--gold-dark); font-family: "Cinzel", Georgia, serif; font-size: 10px; letter-spacing: .16em; }
+
+    .hidden { display: none !important; }
+
+    .viewer-shell:fullscreen { max-width: none; padding: 10px; background: #efe5cc; justify-content: center; }
+
+    /* Phones: bigger touch buttons, tighter header */
+    @media (max-width: 600px) {
+      .page-frame { margin: 4px; padding: 10px 2px; }
+      .controls .btn.nav { flex: 1; max-width: 140px; }
+      .hint { display: none; }
+    }
+    /* Short landscape phones: hide header to give the book room */
+    @media (max-height: 480px) and (orientation: landscape) {
+      .masthead, .footer, .hint { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; } }
+  </style>
+</head>
+
+<body>
+  <main class="page-frame">
+    <header class="masthead">
+      <img src="/djc_logo.png" alt="Diamond Jubilee Celebrations emblem" class="crest">
+      <p class="eyebrow">201 ENGINEER REGIMENT</p>
+      <h1>Diamond Jubilee Celebrations</h1>
+      <p class="motto">ERUNOOTRU ONNE EPPOTHUM MUNNE</p>
+    </header>
+
+    <section class="viewer-shell" id="viewer-shell" aria-label="Invitation flipbook">
+      <div id="status" role="status" aria-live="polite">
+        <span class="loading-mark" aria-hidden="true"></span>Preparing your invitation...
+      </div>
+
+      <div id="book-container" class="hidden"><div id="book"></div></div>
+
+      <nav id="controls" class="controls hidden" aria-label="Invitation controls">
+        <button id="prev" class="btn nav" type="button" disabled aria-label="Previous page">← Prev</button>
+        <span id="page-number" aria-live="polite">1 / 1</span>
+        <button id="next" class="btn nav" type="button" disabled aria-label="Next page">Next →</button>
+      </nav>
+
+      <div id="extras" class="extras hidden">
+        <a id="download" class="btn secondary" download>Download PDF</a>
+        <button id="fullscreen" class="btn secondary" type="button">Full Screen</button>
+      </div>
+
+      <p id="hint" class="hint hidden">Swipe or tap the page edges to turn pages. Use arrow keys on a computer.</p>
+    </section>
+
+    <footer class="footer">
+      <b>201 ENGINEER REGIMENT</b>
+      We look forward to celebrating with you.
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://unpkg.com/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const statusEl = $("status"), shell = $("viewer-shell"), bookContainer = $("book-container"),
+          bookEl = $("book"), controls = $("controls"), extras = $("extras"), hint = $("hint"),
+          prevBtn = $("prev"), nextBtn = $("next"), fsBtn = $("fullscreen"),
+          pageLabel = $("page-number"), downloadLink = $("download");
+
+    // Guest id comes from the per-guest page (data-guest, written by build.py),
+    // with ?s= / ?guest= kept as a fallback for older links.
+    // New links:  https://201er.github.io/Col_LV_Raju/
+    const params = new URLSearchParams(location.search);
+    const guestId = document.documentElement.dataset.guest || params.get("s") || params.get("guest");
+    const pdfUrl = guestId && /^[a-zA-Z0-9_-]+$/.test(guestId) ? `/invites/${guestId}.pdf` : null;
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    let flipbook = null;
+    const objectUrls = [];
+
+    function setStatus(msg, isError = false) {
+      statusEl.classList.toggle("error", isError);
+      statusEl.textContent = msg;
+      statusEl.classList.remove("hidden");
+    }
+
+    function updateControls() {
+      if (!flipbook) return;
+      const cur = flipbook.getCurrentPageIndex(), total = flipbook.getPageCount();
+      pageLabel.textContent = `${cur + 1} / ${total}`;
+      prevBtn.disabled = cur <= 0;
+      nextBtn.disabled = cur >= total - 1;
+    }
+
+    // Render each page at the phone's real pixel density (capped for memory).
+    async function renderPage(page) {
+      const base = page.getViewport({ scale: 1 });
+      const dpr = Math.min(window.devicePixelRatio || 1, 3);
+      const cssWidth = Math.min(window.innerWidth, 720);
+      const scale = Math.min(Math.max((cssWidth * dpr) / base.width, 1.5), 3);
+      const viewport = page.getViewport({ scale });
+
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.ceil(viewport.width);
+      canvas.height = Math.ceil(viewport.height);
+      const ctx = canvas.getContext("2d", { alpha: false });
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      await page.render({ canvasContext: ctx, viewport }).promise;
+
+      const blob = await new Promise((res, rej) =>
+        canvas.toBlob(b => (b ? res(b) : rej(new Error("Could not render a page."))), "image/jpeg", 0.92));
+      canvas.width = canvas.height = 0;
+
+      const url = URL.createObjectURL(blob);
+      objectUrls.push(url);
+      return url;
+    }
+
+    async function start() {
+      try {
+        if (!pdfUrl) {
+          setStatus("This invitation link is incomplete. Please open the personalised link you received.", true);
+          return;
+        }
+        setStatus("Loading your invitation...");
+
+        const res = await fetch(pdfUrl);
+        if (!res.ok) throw new Error("Invitation not found. Please check your link or contact the host.");
+
+        const pdf = await pdfjsLib.getDocument({ data: await res.arrayBuffer() }).promise;
+        const total = pdf.numPages;
+        if (!total) throw new Error("The invitation contains no pages.");
+
+        const first = await pdf.getPage(1);
+        const vp = first.getViewport({ scale: 1 });
+
+        // Build page elements up front; images are filled in as they render.
+        const imgs = [];
+        for (let i = 0; i < total; i++) {
+          const div = document.createElement("div");
+          div.className = "page";
+          if (i === 0 || i === total - 1) div.dataset.density = "hard";
+          const img = document.createElement("img");
+          img.alt = `Invitation page ${i + 1}`;
+          img.draggable = false;
+          div.appendChild(img);
+          bookEl.appendChild(div);
+          imgs.push(img);
+        }
+
+        // Render the first pages, then show the book straight away.
+        const initial = Math.min(2, total);
+        for (let i = 1; i <= initial; i++) {
+          setStatus(`Preparing your invitation... ${i} of ${total}`);
+          const p = i === 1 ? first : await pdf.getPage(i);
+          imgs[i - 1].src = await renderPage(p);
+          p.cleanup();
+        }
+
+        flipbook = new St.PageFlip(bookEl, {
+          width: vp.width,
+          height: vp.height,
+          size: "stretch",
+          minWidth: 260,
+          maxWidth: 720,
+          minHeight: 360,
+          maxHeight: 1100,
+          showCover: true,
+          usePortrait: true,
+          drawShadow: true,
+          maxShadowOpacity: 0.25,
+          flippingTime: 800,
+          mobileScrollSupport: true,
+          clickEventForward: true,
+          useMouseEvents: true,
+          swipeDistance: 25,
+          autoSize: true
+        });
+        flipbook.loadFromHTML(bookEl.querySelectorAll(".page"));
+        flipbook.on("flip", updateControls);
+
+        prevBtn.addEventListener("click", () => flipbook.flipPrev());
+        nextBtn.addEventListener("click", () => flipbook.flipNext());
+
+        downloadLink.href = pdfUrl;
+        downloadLink.setAttribute("download", `${guestId}-invitation.pdf`);
+
+        statusEl.classList.add("hidden");
+        [bookContainer, controls, extras, hint].forEach(el => el.classList.remove("hidden"));
+        updateControls();
+
+        // Render the remaining pages in the background.
+        for (let i = initial + 1; i <= total; i++) {
+          const p = await pdf.getPage(i);
+          imgs[i - 1].src = await renderPage(p);
+          p.cleanup();
+        }
+      } catch (err) {
+        console.error(err);
+        setStatus(err.message || "Unable to display this invitation. Please try again.", true);
+        objectUrls.forEach(URL.revokeObjectURL);
+        objectUrls.length = 0;
+      }
+    }
+
+    // Full screen (not supported on iPhone Safari, so hide the button there)
+    if (!shell.requestFullscreen) {
+      fsBtn.classList.add("hidden");
+    } else {
+      fsBtn.addEventListener("click", () => {
+        (document.fullscreenElement ? document.exitFullscreen() : shell.requestFullscreen()).catch(() => {});
+      });
+      document.addEventListener("fullscreenchange", () => {
+        fsBtn.textContent = document.fullscreenElement ? "Exit Full Screen" : "Full Screen";
+      });
+    }
+
+    document.addEventListener("keydown", e => {
+      if (!flipbook) return;
+      if (e.key === "ArrowLeft") flipbook.flipPrev();
+      else if (e.key === "ArrowRight") flipbook.flipNext();
+    });
+
+    window.addEventListener("pagehide", () => objectUrls.forEach(URL.revokeObjectURL));
+
+    if (typeof pdfjsLib === "undefined") {
+      setStatus("The PDF viewer could not load. Check your internet connection and refresh.", true);
+    } else if (typeof St === "undefined" || !St.PageFlip) {
+      setStatus("The page-turn viewer could not load. Refresh the page and try again.", true);
+    } else {
+      start();
+    }
+  </script>
+</body>
+</html>
